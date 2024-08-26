@@ -1,10 +1,13 @@
 from flask import Flask
+from flask_cors import CORS
 from config import config
 
 # Routes
 from routes import User
 
 app = Flask(__name__)
+
+CORS(app, resources={"*": {"origins": "http://localhost:5000"}})
 
 def page_not_found(error):
     return '<h1>La página no existe</h1>', 404
